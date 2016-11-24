@@ -11,7 +11,7 @@ from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
 
 
-class AccountPaymentTerm(models.Model):
+class AccountPaymentTermEOM(models.Model):
     _inherit = 'account.payment.term'
 
 
@@ -22,8 +22,8 @@ class AccountPaymentTerm(models.Model):
             if line.months:
                 lines_months = True
                 break
-        if lines_months:
-            return super(AccountPaymentTerm,self).compute(self,value,date_ref)
+        if not lines_months:
+            return super(AccountPaymentTermEOM,self).compute(value,date_ref=date_ref)[0]
         date_ref = date_ref or fields.Date.today()
         amount = value
         result = []

@@ -16,7 +16,7 @@
     'license': 'AGPL-3',
     'depends': ['account'],
     'data': [
-        'view/fiscalcode_view.xml'
+        'view/payment_term_line_view.xml'
         ],
     'images': [],
     'installable': True
